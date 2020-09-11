@@ -1,0 +1,29 @@
+{
+  "name": "warcraft3-discord-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "discord.js": "^12.3.1",
+    "puppeteer": "^5.2.1"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "dev": "nodemon src/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Edgar018/warcraft3-discord-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Edgar018/warcraft3-discord-bot/issues"
+  },
+  "homepage": "https://github.com/Edgar018/warcraft3-discord-bot#readme"
+}
