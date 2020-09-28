@@ -1,11 +1,13 @@
 const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
 
-const showOponent = async (player, message) => {
+const showOponent = async (player, id, message) => {
     const browser = await puppeteer.launch({headless: false});
     const page = await browser.newPage();
-    await page.goto(`https://www.w3champions.com/player/${player}`,{
-      timeout: 0
+
+   try {
+    await page.goto(`https://www.w3champions.com/player/${player}%23${id}`,{
+      timeout: 40000
     });
     const content = await page.content();
     const $ = cheerio.load(content);
@@ -20,6 +22,10 @@ const showOponent = async (player, message) => {
     }else{
       message.channel.send('he is not playing yet');
     }
+   } catch (error) {
+    browser.close();
+    message.channel.send('Wrong name or id')
+   }
 }
 
 module.exports = showOponent;
