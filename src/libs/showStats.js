@@ -1,8 +1,8 @@
 const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
-const makeEmbed = require('./embed');
+const { playerEmbed } = require('./embed');
 
-const showStats = async (player, id, message, embed) => {
+const showStats = async (player, id, message) => {
 
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
@@ -34,11 +34,11 @@ const showStats = async (player, id, message, embed) => {
 
     browser.close();
 
-    makeEmbed(embed, player, playerAvatar, raceList, statsList, message)
+    playerEmbed(player, playerAvatar, raceList, statsList, message)
 
   } catch (error) {
     browser.close();
-    message.channel.send('Wrong name or id');
+    message.channel.send('Internal server error');
   }
 };
 
